@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 // TODO: Follow instructions in the checkpoint to implement ths API.
 
