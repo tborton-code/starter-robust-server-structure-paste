@@ -17,7 +17,7 @@ app.use("/pastes/:pasteId", (req, res, next) => {
   }
 });
 
-app.use("/pastes", (req, res) => {
+app.get("/pastes", (req, res) => {
   res.json({ data: pastes });
 });
 
