@@ -25,9 +25,12 @@ app.get("/pastes", (req, res) => {
 function bodyHasTextProperty(req, res, next) {
   const { data: { text } = {} } = req.body;
   if (text) {
-    return next(); // Call `next()` without an error message if the result exists
+    return next();
   }
-  next("A 'text' property is required.");
+  next({
+    status: 400,
+    message: "A 'text' property is required.",
+  });
 }
 
 let lastPasteId = pastes.reduce((maxId, paste) => Math.max(maxId, paste.id), 0);
