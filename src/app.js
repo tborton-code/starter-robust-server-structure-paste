@@ -13,7 +13,7 @@ app.use("/pastes/:pasteId", (req, res, next) => {
   if (foundPaste) {
     res.json({ data: foundPaste });
   } else {
-    next(`Paste id not found: ${pasteId}`);
+    next({ status: 404, message: `Paste id not found: ${pasteId}` });
   }
 });
 
